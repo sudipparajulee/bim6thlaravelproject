@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::get('/category',[CategoryController::class,'index'])->name('category.index');
+    Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
