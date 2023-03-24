@@ -27,7 +27,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return redirect(route('category.index'));
+        return redirect(route('category.index'))->with('success','Category Added Successfully');
 
     }
 
@@ -47,6 +47,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->update($data);
 
-        return redirect(route('category.index'));
+        return redirect(route('category.index'))->with('success','Category Updated Successfully');
     }
 }
