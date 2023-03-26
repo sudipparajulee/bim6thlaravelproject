@@ -49,4 +49,11 @@ class CategoryController extends Controller
 
         return redirect(route('category.index'))->with('success','Category Updated Successfully');
     }
+
+    public function delete(Request $request)
+    {
+        $category = Category::find($request->dataid);
+        $category->delete();
+        return redirect(route('category.index'))->with('success','Category Deleted Successfully');
+    }
 }

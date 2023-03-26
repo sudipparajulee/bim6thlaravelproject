@@ -34,8 +34,9 @@
         <div class="flex h-full justify-center items-center">
             <div class="bg-white p-10 rounded-lg">
                 <p class="font-bold text-2xl">Are you sure to delete?</p>
-                <form action="">
-                    <input type="hidden" name="dataid" value="">
+                <form action="{{route('category.delete')}}" method="POST">
+                    @csrf
+                    <input type="hidden" id="dataid" name="dataid" value="">
                     
                     <div class="flex mt-10 justify-center">
                         <input type="submit" value="Yes! Delete" class="bg-blue-600 text-white px-3 py-2 rounded-lg cursor-pointer mx-2">
@@ -57,7 +58,7 @@
         function showDelete(id)
         {
             $('#deletebox').removeClass('hidden');
-            
+            $('#dataid').val(id);
         }
 
         function hideDelete()
