@@ -19,7 +19,7 @@
             <tr>
                 <td>{{$gallery->priority}}</td>
                 <td>{{$gallery->description}}</td>
-                <td>{{$gallery->photopath}}</td>
+                <td><img class="w-24" src="{{asset('images/gallery/'.$gallery->photopath)}}" alt=""></td>
                 <td>
                     <a href="{{route('gallery.edit',$gallery->id)}}" class="bg-blue-600 text-white px-4 py-1 rounded-lg mx-1">Edit</a>
                     <a onclick="showDelete('{{$gallery->id}}')" class="bg-red-600 text-white px-4 py-1 rounded-lg mx-1 cursor-pointer">Delete</a>

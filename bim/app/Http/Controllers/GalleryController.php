@@ -29,7 +29,25 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'description' => 'required',
+            'priority' => 'required',
+            'photopath' => 'required',
+        ]);
+        
+
+        if($request->file('photopath'))
+        {
+            $file = $request->file('photopath');
+            $filename = $file->getClientOriginalName();
+            $photopath = time().'_'.$filename;
+            $file->move(public_path('/images/gallery/'),$photopath);
+            $data['photopath'] = $photopath;
+        }
+
+        Gallery::create($data);
+        return redirect(route('gallery.index'))->with('success','Gallery Added Successfully');
+
     }
 
     /**
@@ -45,7 +63,7 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        return view('gallery.edit',compact('gallery'));
     }
 
     /**
