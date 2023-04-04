@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File as FacadesFile;
 
 class GalleryController extends Controller
 {
@@ -71,7 +73,26 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
-        //
+        $data = $request->validate([
+            'description' => 'required',
+            'priority' => 'required',
+            'photopath' => 'nullable',
+        ]);
+        
+        $data['photopath'] = $gallery->photopath;
+
+        if($request->file('photopath'))
+        {
+            $file = $request->file('photopath');
+            $filename = $file->getClientOriginalName();
+            $photopath = time().'_'.$filename;
+            $file->move(public_path('/images/gallery/'),$photopath);
+            FacadesFile::delete(public_path('/images/gallery/'.$gallery->photopath));
+            $data['photopath'] = $photopath;
+        }
+
+        $gallery->update($data);
+        return redirect(route('gallery.index'))->with('success','Gallery Updated Successfully');
     }
 
     /**
@@ -79,6 +100,10 @@ class GalleryController extends Controller
      */
     public function delete(Request $request)
     {
-        //
+        $gallery = Gallery::find($request->dataid);
+        FacadesFile::delete(public_path('/images/gallery/'.$gallery->photopath));
+        $gallery->delete();
+        return redirect(route('gallery.index'))->with('success','Gallery Deleted Successfully');
+
     }
 }

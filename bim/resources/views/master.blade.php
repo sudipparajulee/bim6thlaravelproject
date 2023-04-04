@@ -13,7 +13,7 @@
         <a href="/" class="font-bold text-lg px-4">Home</a>
         <a href="/about" class="font-bold text-lg px-4">About</a>
         <a href="" class="font-bold text-lg px-4">Contact</a>
-        <a href="" class="font-bold text-lg px-4">Login</a>
+        <a href="{{route('login')}}" class="font-bold text-lg px-4">Login</a>
     </nav>
     @yield('content')
     <h1>This is footer</h1>
