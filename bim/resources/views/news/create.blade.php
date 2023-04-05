@@ -2,14 +2,19 @@
 @section('content')
     <h2 class="text-4xl font-bold border-b-4 text-red-500 border-blue-500">Create New News</h2>
 
-    <form action="{{route('gallery.store')}}" method="POST" class="my-10" enctype="multipart/form-data">
+    <form action="{{route('news.store')}}" method="POST" class="my-10" enctype="multipart/form-data">
         @csrf
 
         <select class="w-full p-2 rounded-lg mt-2" name="category_id" id="">
-            <option value="">Category 1</option>
-            <option value="">Category 2</option>
-            <option value="">Category 3</option>
+            @foreach($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
         </select>
+
+        <input type="date" class="w-full p-2 rounded-lg mt-2" name="news_date" value="{{old('news_date')}}">
+        @error('news_date')
+            <span class="text-red-500 -mt-4">* {{$message}}</span>
+        @enderror
 
         <input type="text" class="w-full p-2 rounded-lg mt-2" name="title" placeholder="Enter title" value="{{old('title')}}">
         @error('title')

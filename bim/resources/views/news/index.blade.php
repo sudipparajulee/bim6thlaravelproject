@@ -8,18 +8,22 @@
     </div>
     <table id="example" class="display"> 
         <thead>
-            <th>Order</th>
+            <th>Date</th>
+            <th>Title</th>
             <th>Description</th>
             <th>Picture</th>
+            <th>Category</th>
             <th>Action</th>
         </thead>
         <tbody>
             @foreach($news as $news)
            
             <tr>
-                <td>{{$news->priority}}</td>
+                <td>{{$news->news_date}}</td>
+                <td>{{$news->title}}</td>
                 <td>{{$news->description}}</td>
                 <td><img class="w-24" src="{{asset('images/news/'.$news->photopath)}}" alt=""></td>
+                <td>{{$news->category_id}}</td>
                 <td>
                     <a href="{{route('news.edit',$news->id)}}" class="bg-blue-600 text-white px-4 py-1 rounded-lg mx-1">Edit</a>
                     <a onclick="showDelete('{{$news->id}}')" class="bg-red-600 text-white px-4 py-1 rounded-lg mx-1 cursor-pointer">Delete</a>

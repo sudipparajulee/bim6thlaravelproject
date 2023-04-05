@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create');
+        $categories = Category::all();
+        return view('news.create',compact('categories'));
     }
 
     /**
@@ -29,7 +31,26 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'news_date' => 'required',
+            'description' => 'required',
+            'photopath' => 'required|mimes:png,jpg',
+        ]);
+
+        if($request->file('photopath'))
+        {
+            $file = $request->file('photopath');
+            $filename = $file->getClientOriginalName();
+            $photopath = time().'_'.$filename;
+            $file->move(public_path('/images/news/'),$photopath);
+            $data['photopath'] = $photopath;
+        }
+
+        News::create($data);
+        return redirect(route('news.index'))->with('success','News Created Successfully');
+
     }
 
     /**
