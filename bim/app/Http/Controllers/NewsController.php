@@ -66,7 +66,8 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        $categories = Category::all();
+        return view('news.edit',compact('news','categories'));
     }
 
     /**

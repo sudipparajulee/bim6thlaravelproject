@@ -36,6 +36,11 @@
 
                     <a href="{{route('gallery.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Gallery</a>
 
+                    <form action="{{route('logout')}}" method="POST" class="ml-2 border-b-2 border-blue-500 hover:bg-blue-600 hover:text-white">
+                        @csrf
+                        <button type="submit" class="block pl-4 w-full text-left text-xl py-2 ">Logout</button>
+                    </form>
+
                     
                 </div>
             </div>
