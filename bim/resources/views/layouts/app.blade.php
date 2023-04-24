@@ -35,6 +35,8 @@
                     <a href="{{route('news.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">News</a>
 
                     <a href="{{route('gallery.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Gallery</a>
+                    
+                    <a href="{{route('user.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Users</a>
 
                     <form action="{{route('logout')}}" method="POST" class="ml-2 border-b-2 border-blue-500 hover:bg-blue-600 hover:text-white">
                         @csrf

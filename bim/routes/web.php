@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,6 +61,14 @@ Route::prefix('admin/')->middleware('auth')->group(function () {
     Route::get('/news/{news}/edit',[NewsController::class,'edit'])->name('news.edit');
     Route::post('/news/{news}/update',[NewsController::class,'update'])->name('news.update');
     Route::post('/news/delete',[NewsController::class,'delete'])->name('news.delete');
+
+    //Users
+    Route::get('/user',[UserController::class,'index'])->name('user.index');
+    Route::get('/user/create',[UserController::class,'create'])->name('user.create');
+    Route::post('/user/store',[UserController::class,'store'])->name('user.store');
+    Route::get('/user/{user}/edit',[UserController::class,'edit'])->name('user.edit');
+    Route::post('/user/{user}/update',[UserController::class,'update'])->name('user.update');
+    Route::post('/user/delete',[UserController::class,'delete'])->name('user.delete');
 
 
 
