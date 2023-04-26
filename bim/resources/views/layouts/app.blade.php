@@ -27,7 +27,7 @@
 
                 <div class="mt-12">
                     <p class="text-center font-bold text-lg">Hello, {{auth()->user()->name}}</p>
-                    <a href="{{route('dashboard')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Dashboard</a>
+                    <a href="{{route('dashboard')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Dashboard</a> 
 
                     <a href="{{route('notice.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Notice</a>
 
