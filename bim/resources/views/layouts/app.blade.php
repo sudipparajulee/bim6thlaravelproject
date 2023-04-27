@@ -31,7 +31,9 @@
 
                     <a href="{{route('notice.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Notice</a>
 
+                    @if(auth()->user()->role == 'admin')
                     <a href="{{route('category.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">Category</a>
+                    @endif
 
                     <a href="{{route('news.index')}}" class="block pl-4 border-b-2 border-blue-500 ml-2 text-xl py-2 hover:bg-blue-600 hover:text-white">News</a>
 

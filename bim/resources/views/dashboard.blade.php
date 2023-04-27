@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('layouts.message')
     <h2 class="text-4xl font-bold border-b-4 text-red-500 border-blue-500">Dashboard</h2>
 
     <div class="grid grid-cols-3 gap-8 my-6">
