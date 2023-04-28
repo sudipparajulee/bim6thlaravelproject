@@ -29,7 +29,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        //if we want to redirect different pages according to roles.
+        if(auth()->user()->role == 'admin')
+        {
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+        else
+        {
+            return redirect('/');
+        }
     }
 
     /**
@@ -43,6 +51,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
