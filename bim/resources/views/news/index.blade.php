@@ -11,7 +11,7 @@
             <th>Date</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Picture</th>
+            <th>Picture for displaying in news</th>
             <th>Category</th>
             <th>Action</th>
         </thead>
@@ -21,8 +21,8 @@
             <tr>
                 <td>{{$news->news_date}}</td>
                 <td>{{$news->title}}</td>
-                <td>{{$news->description}}</td>
-                <td><img class="w-24" src="{{asset('images/news/'.$news->photopath)}}" alt=""></td>
+                <td><div class="h-24 overflow-auto">{{$news->description}}</div></td>
+                <td><img class="w-full" src="{{asset('images/news/'.$news->photopath)}}" alt=""></td>
                 <td>{{$news->category->name}}</td>
                 <td>
                     <a href="{{route('news.edit',$news->id)}}" class="bg-blue-600 text-white px-4 py-1 rounded-lg mx-1">Edit</a>
@@ -56,7 +56,12 @@
 
     <script>
         $(document).ready(function () {
-    $('#example').DataTable();
+    $('#example').DataTable({
+        columnDefs: [
+            { width: 150, targets: 3 },
+            { width: 350, targets: 2 }
+        ],
+    });
 });
     </script>
 

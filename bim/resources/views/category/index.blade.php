@@ -18,6 +18,9 @@
             <tr>
                 <td>{{$category->priority}}</td>
                 <td>{{$category->name}}</td>
+                {{-- @foreach ($category->news as $news)
+                    <td>{{$news->description}}</td>
+                @endforeach --}}
                 <td>
                     <a href="{{route('category.edit',$category->id)}}" class="bg-blue-600 text-white px-4 py-1 rounded-lg mx-1">Edit</a>
                     <a onclick="showDelete('{{$category->id}}')" class="bg-red-600 text-white px-4 py-1 rounded-lg mx-1 cursor-pointer">Delete</a>
