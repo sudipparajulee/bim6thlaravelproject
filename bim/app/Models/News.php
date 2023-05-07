@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+    // protected $table = "mynews"; // if table name is different from model name
     protected $guarded = [];
 
     function category()
