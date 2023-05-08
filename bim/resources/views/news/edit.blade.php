@@ -4,7 +4,7 @@
 
     <form action="{{route('news.update',$news->id)}}" method="POST" class="my-10" enctype="multipart/form-data">
         @csrf
-
+        @method('PATCH')
         <select class="w-full p-2 rounded-lg mt-2" name="category_id" id="">
             @foreach($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
