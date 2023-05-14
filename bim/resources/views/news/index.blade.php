@@ -21,7 +21,7 @@
             <tr>
                 <td>{{$news->news_date}}</td>
                 <td>{{$news->title}}</td>
-                <td><div class="h-24 overflow-auto">{{$news->description}}</div></td>
+                <td><div class="h-24 overflow-auto">{!!$news->description!!}</div></td>
                 <td><img class="w-full" src="{{asset('images/news/'.$news->photopath)}}" alt=""></td>
                 <td>{{$news->category->name}}</td>
                 <td>

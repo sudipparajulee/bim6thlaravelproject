@@ -21,7 +21,7 @@
             <span class="text-red-500 -mt-4">* {{$message}}</span>
         @enderror
 
-        <input type="text" class="w-full p-2 rounded-lg mt-2" name="description" placeholder="Description" value="{{old('description')}}">
+        <textarea id="mytextarea" rows="10" type="text" class="w-full p-2 rounded-lg mt-2" name="description" placeholder="Description" value="{{old('description')}}"></textarea>
         @error('description')
             <span class="text-red-500 -mt-4">* {{$message}}</span>
         @enderror

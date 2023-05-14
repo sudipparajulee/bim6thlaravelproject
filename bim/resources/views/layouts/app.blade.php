@@ -15,6 +15,13 @@
         <script src="{{asset('datatable/jquery-3.6.0.js')}}"></script>
         <script src="{{asset('datatable/datatables.js')}}"></script>
 
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
